@@ -25,19 +25,23 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.android.tools.build:gradle:1.1.3'
     }
 }
 
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     sourceSets {
@@ -49,6 +53,19 @@ android {
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
+        }
+    }
+}
+
+dependencies {
+    compile 'org.xwalk:xwalk_core_library:11.40.277.7'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
         }
     }
 }
