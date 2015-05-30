@@ -901,6 +901,8 @@ public class CordovaWebView extends XWalkView {
         XWalkPreferences.setValue("allow-universal-access-from-file", true);
         // XWalkPreferencesInternal.SUPPORT_MULTIPLE_WINDOWS
         XWalkPreferences.setValue("support-multiple-windows", false);
+        // fox for https://crosswalk-project.org/jira/browse/XWALK-3200
+        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
     }
 
     public void clearHistory() {
