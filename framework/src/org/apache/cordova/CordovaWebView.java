@@ -255,15 +255,15 @@ public class CordovaWebView extends XWalkView {
         XWalkPreferences.setValue(XWalkPreferences.REMOTE_DEBUGGING, true);
     }
 
-	/**
-	 * Override this method to decide whether or not you need to request the
-	 * focus when your application start
-	 * 
-	 * @return true unless this method is overriden to return a different value
-	 */
+    /**
+     * Override this method to decide whether or not you need to request the
+     * focus when your application start
+     * 
+     * @return true unless this method is overriden to return a different value
+     */
     protected boolean shouldRequestFocusOnInit() {
-		return true;
-	}
+        return true;
+    }
 
     private void exposeJsInterface() {
         if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1)) {
@@ -858,12 +858,12 @@ public class CordovaWebView extends XWalkView {
     {
         XWalkNavigationHistory currentList = this.getNavigationHistory();
         XWalkNavigationItem item = currentList.getItemAt(0);
-        if( item!=null){	// Null-fence in case they haven't called loadUrl yet (CB-2458)
-	        String url = item.getUrl();
-	        String currentUrl = this.getUrl();
-	        LOG.d(TAG, "The current URL is: " + currentUrl);
-	        LOG.d(TAG, "The URL at item 0 is: " + url);
-	        return currentUrl.equals(url);
+        if( item!=null){ // Null-fence in case they haven't called loadUrl yet (CB-2458)
+            String url = item.getUrl();
+            String currentUrl = this.getUrl();
+            LOG.d(TAG, "The current URL is: " + currentUrl);
+            LOG.d(TAG, "The URL at item 0 is: " + url);
+            return currentUrl.equals(url);
         }
         return false;
     }
@@ -883,7 +883,7 @@ public class CordovaWebView extends XWalkView {
     @Deprecated // This never did anything
     public void storeResult(int requestCode, int resultCode, Intent intent) {
     }
-    
+
     public CordovaResourceApi getResourceApi() {
         return resourceApi;
     }
@@ -901,5 +901,11 @@ public class CordovaWebView extends XWalkView {
         XWalkPreferences.setValue("allow-universal-access-from-file", true);
         // XWalkPreferencesInternal.SUPPORT_MULTIPLE_WINDOWS
         XWalkPreferences.setValue("support-multiple-windows", false);
+        // fox for https://crosswalk-project.org/jira/browse/XWALK-3200
+        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
+    }
+
+    public void clearHistory() {
+        this.getNavigationHistory().clear();
     }
 }
