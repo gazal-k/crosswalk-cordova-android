@@ -4,11 +4,13 @@ gen
 assets/www/cordova.js
 framework/assets/www/.tmp*
 local.properties
+framework/.gradle
 framework/lib
 proguard.cfg
 proguard.cfg
 proguard-project.txt
 framework/bin
+framework/build
 framework/test/org/apache/cordova/*.class
 framework/assets/www/.DS_Store
 framework/assets/www/cordova-*.js
