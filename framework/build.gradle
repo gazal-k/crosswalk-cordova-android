@@ -58,7 +58,7 @@ android {
 }
 
 dependencies {
-    compile 'org.xwalk:xwalk_core_library:11.40.277.7'
+    compile 'org.xwalk:xwalk_core_library_beta:14.43.343.14'
 }
 
 allprojects {
